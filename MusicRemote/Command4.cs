@@ -13,7 +13,7 @@ using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.VisualStudio.OLE;
 using System.Diagnostics;
 
-namespace VSIXSpotifyRemote
+namespace MusicRemote
 {
     /// <summary>
     /// Command handler
@@ -23,7 +23,7 @@ namespace VSIXSpotifyRemote
 
         private const int kSHOW_TRACK_INTERVAL = 5000; //Milliseconds
         private const int kANIMATE_SPOT_STRING = 125; //ms
-        private const string kSpotifyOpenString = "Open Spotify"; 
+        private const string kStandardString = "Music Remote"; 
 
         /// <summary>
         /// Command ID.
@@ -33,7 +33,7 @@ namespace VSIXSpotifyRemote
         /// <summary>
         /// Command menu group (command set GUID).
         /// </summary>
-        public static readonly Guid CommandSet = new Guid("2599fe4a-622d-4cdc-8a4d-a08560938c54");
+        public static readonly Guid CommandSet = new Guid("FEEBD119-A6F4-4BB3-A1AE-66F6E242ECFC");
 
 
         private OleMenuCommand myOleCommand;
@@ -74,8 +74,8 @@ namespace VSIXSpotifyRemote
                 //    //uiShell.UpdateCommandUI(0);
                 //}
 
-                Command1Package.spotClient.OnTrackChange += SpotClient_OnTrackChange;
-                Command1Package.spotClient.ListenForEvents = true;
+               // Command1Package.spotClient.OnTrackChange += SpotClient_OnTrackChange;
+               // Command1Package.spotClient.ListenForEvents = true;
 
                 commandService.AddCommand(myOleCommand);
                 
@@ -85,27 +85,27 @@ namespace VSIXSpotifyRemote
             
         }
 
-        public void SpotClient_OnTrackChange(object sender, SpotifyAPI.Local.TrackChangeEventArgs e)
-        {
-            string trackName = e.NewTrack.TrackResource.Name;
-            string artistName = e.NewTrack.ArtistResource.Name;
-            Console.WriteLine("Show New track name: " + trackName);
-            myOleCommand.Text = String.Format("{0} - {1}", trackName, artistName);
-            if(timer != null)
-            {
-                timer.Stop();
-                timer.Start();
-            }
-            else
-            {
-                timer = new System.Timers.Timer() { Interval = kSHOW_TRACK_INTERVAL };
-                //timer.AutoReset = false;
-                timer.Elapsed += TrackChangeTimerTick;
-                timer.Start();
-            }
+        //public void SpotClient_OnTrackChange(object sender, SpotifyAPI.Local.TrackChangeEventArgs e)
+        //{
+        //    string trackName = e.NewTrack.TrackResource.Name;
+        //    string artistName = e.NewTrack.ArtistResource.Name;
+        //    Console.WriteLine("Show New track name: " + trackName);
+        //    myOleCommand.Text = String.Format("{0} - {1}", trackName, artistName);
+        //    if(timer != null)
+        //    {
+        //        timer.Stop();
+        //        timer.Start();
+        //    }
+        //    else
+        //    {
+        //        timer = new System.Timers.Timer() { Interval = kSHOW_TRACK_INTERVAL };
+        //        //timer.AutoReset = false;
+        //        timer.Elapsed += TrackChangeTimerTick;
+        //        timer.Start();
+        //    }
             
 
-        }
+        //}
 
         private void TrackChangeTimerTick(object sender, System.Timers.ElapsedEventArgs e)
         {
@@ -126,16 +126,16 @@ namespace VSIXSpotifyRemote
         private void TimerAnimateOriginal(object sender, System.Timers.ElapsedEventArgs e)
         {
             
-            if(myOleCommand.Text.Length == kSpotifyOpenString.Length)
+            if(myOleCommand.Text.Length == kStandardString.Length)
             {
                 timer.Stop();
                 timer.Elapsed -= TimerAnimateOriginal;
                 timer = null;
-                myOleCommand.Text = kSpotifyOpenString;
+                myOleCommand.Text = kStandardString;
             }
             else
             {
-                if (myOleCommand.Text.Length > kSpotifyOpenString.Length)
+                if (myOleCommand.Text.Length > kStandardString.Length)
                 {
                     myOleCommand.Text = myOleCommand.Text.Remove(myOleCommand.Text.Length - 1);
                 }
@@ -225,16 +225,16 @@ namespace VSIXSpotifyRemote
             }
             else
             {
-                Console.WriteLine("Spotify not running.");
-                if(!SpotifyAPI.Local.SpotifyLocalAPI.IsSpotifyRunning())
-                {
-                    SpotifyAPI.Local.SpotifyLocalAPI.RunSpotify();
-                }
-                else
-                {
-                    Console.WriteLine("Something went wrong..\n "
-                        + "Spotify seems to be running but cant focus.");
-                }
+                //Console.WriteLine("Spotify not running.");
+                //if(!SpotifyAPI.Local.SpotifyLocalAPI.IsSpotifyRunning())
+                //{
+                //    SpotifyAPI.Local.SpotifyLocalAPI.RunSpotify();
+                //}
+                //else
+                //{
+                //    Console.WriteLine("Something went wrong..\n "
+                //        + "Spotify seems to be running but cant focus.");
+                //}
             }
         }
 

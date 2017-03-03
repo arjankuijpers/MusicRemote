@@ -11,7 +11,7 @@ using System.Globalization;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 
-namespace VSIXSpotifyRemote
+namespace MusicRemote
 {
     /// <summary>
     /// Command handler
@@ -26,7 +26,7 @@ namespace VSIXSpotifyRemote
         /// <summary>
         /// Command menu group (command set GUID).
         /// </summary>
-        public static readonly Guid CommandSet = new Guid("2599fe4a-622d-4cdc-8a4d-a08560938c54");
+        public static readonly Guid CommandSet = new Guid("FEEBD119-A6F4-4BB3-A1AE-66F6E242ECFC");
 
         /// <summary>
         /// VS Package that provides this command, not null.
@@ -101,32 +101,32 @@ namespace VSIXSpotifyRemote
             string message = string.Format(CultureInfo.CurrentCulture, "Spotify is not running");
             string title = "SpotifyRemote";
 
-            if (!SpotifyAPI.Local.SpotifyLocalAPI.IsSpotifyRunning())
-            {
-#if SPOT_WARN_NOT_RUNNING
-                VsShellUtilities.ShowMessageBox(
-                this.ServiceProvider,
-                message,
-                title,
-                OLEMSGICON.OLEMSGICON_INFO,
-                OLEMSGBUTTON.OLEMSGBUTTON_OK,
-                OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
-#endif
-                SpotifyAPI.Local.SpotifyLocalAPI.RunSpotify();
-                return;
-            }
+//            if (!SpotifyAPI.Local.SpotifyLocalAPI.IsSpotifyRunning())
+//            {
+//#if SPOT_WARN_NOT_RUNNING
+//                VsShellUtilities.ShowMessageBox(
+//                this.ServiceProvider,
+//                message,
+//                title,
+//                OLEMSGICON.OLEMSGICON_INFO,
+//                OLEMSGBUTTON.OLEMSGBUTTON_OK,
+//                OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+//#endif
+//                SpotifyAPI.Local.SpotifyLocalAPI.RunSpotify();
+//                return;
+//            }
 
             //Play/Pause
-            SpotifyAPI.Local.Models.StatusResponse sr;
-            sr = Command1Package.spotClient.GetStatus();
-            if(!sr.Playing)
-            {
-                Command1Package.spotClient.Play();
-            }
-            else
-            {
-                Command1Package.spotClient.Pause();
-            }
+            //SpotifyAPI.Local.Models.StatusResponse sr;
+            //sr = Command1Package.spotClient.GetStatus();
+            //if(!sr.Playing)
+            //{
+            //    Command1Package.spotClient.Play();
+            //}
+            //else
+            //{
+            //    Command1Package.spotClient.Pause();
+            //}
         }
     }
 }

@@ -104,7 +104,7 @@
         <CommandFlag>TextChanges</CommandFlag>
         <Icon guid="guidImages" id="bmpOpen" />
         <Strings>
-          <ButtonText>Open Spotify</ButtonText>
+          <ButtonText>Music Remote</ButtonText>
         </Strings>
       </Button>
     </Buttons>
@@ -122,10 +122,10 @@
 
   <Symbols>
     <!-- This is the package guid. -->
-    <GuidSymbol name="guidCommand1Package" value="{255a4275-42f0-413a-96f0-6da1d823c63a}" />
+    <GuidSymbol name="guidCommand1Package" value="{D1BE1C17-9445-44B5-A9C8-551598BC49EC}" />
 
     <!-- This is the guid used to group the menu commands together -->
-    <GuidSymbol name="guidCommand1PackageCmdSet" value="{2599fe4a-622d-4cdc-8a4d-a08560938c54}">
+    <GuidSymbol name="guidCommand1PackageCmdSet" value="{FEEBD119-A6F4-4BB3-A1AE-66F6E242ECFC}">
       <IDSymbol name="Toolbar" value="0x1000" />
       <IDSymbol name="ToolbarGroup" value="0x1050" />
       <IDSymbol name="MyMenuGroup" value="0x1020" />

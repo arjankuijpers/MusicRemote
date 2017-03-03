@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="VSIXSpotifyRemote.Arjan Kuijpers.73b80071-5ce8-42be-9bf9-3ecf8bf49ef5" Version="1.0.1" Language="en-US" Publisher="Arjan Kuijpers" />
-    <DisplayName>SpotifyRemote</DisplayName>
-    <Description xml:space="preserve">Spotify Local Remote. Take back control over Spotify.
-With SpotifyRemote you can stay inside of Visual Studio to manage Spotify without changing windows.
-This way we have the best of both worlds, Visual Studio + Spotify.</Description>
-    <MoreInfo>https://github.com/arjankuijpers/SpotifyRemote</MoreInfo>
+    <Identity Id="MusicRemote.Arjan Kuijpers.D1BE1C17-9445-44B5-A9C8-551598BC49EC" Version="1.0.1" Language="en-US" Publisher="Arjan Kuijpers" />
+    <DisplayName>MusicRemote</DisplayName>
+    <Description xml:space="preserve">MusicRemote. Take back control over your music.
+With MusicRemote you can stay inside of Visual Studio to manage your music without changing windows.
+This way we have the best of both worlds, Visual Studio + Music.
+Spin off project of SpotifyRemote, both share the same sourcecode origin.</Description>
+    <MoreInfo>https://github.com/arjankuijpers/MusicRemote</MoreInfo>
     <License>LICENSE.txt</License>
-    <GettingStartedGuide>https://github.com/arjankuijpers/SpotifyRemote/blob/master/README.md</GettingStartedGuide>
-    <ReleaseNotes>https://github.com/arjankuijpers/SpotifyRemote/releases</ReleaseNotes>
-    <Icon>SpotifyRemoteLogo.png</Icon>
+    <GettingStartedGuide>https://github.com/arjankuijpers/MusicRemote/blob/master/README.md</GettingStartedGuide>
+    <ReleaseNotes>https://github.com/arjankuijpers/MusicRemote/releases</ReleaseNotes>
+    <Icon>MusicRemoteLogo.png</Icon>
     <PreviewImage>screenshot.png</PreviewImage>
-    <Tags>Spotify Remote Media Buttons 2015 2017 Tool Toolbar</Tags>
+    <Tags>Music Remote Media Buttons 2015 2017 Tool bar</Tags>
   </Metadata>
   <Installation>
     <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[14.0]" />
